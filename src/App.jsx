@@ -1,7 +1,7 @@
-import Timer from "./components/Timer";
+import Bulb from "./components/Bulb";
 
 const App = () => {
-  return <Timer />;
+  return <Bulb />;
 };
 
 export default App;
