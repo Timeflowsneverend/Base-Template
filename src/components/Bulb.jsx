@@ -1,7 +1,14 @@
+import { useEffect } from "react";
 import { useState } from "react";
 
 const Bulb = () => {
-  const [on, setOn] = useState(false);
+  const [on, setOn] = useState(() => {
+    const savedState = localStorage.getItem("bulbState");
+    return savedState ? JSON.parse(savedState) : false;
+  });
+  useEffect(() => {
+    localStorage.setItem("bulbState", JSON.stringify(on));
+  }, [on]);
   return (
     <div
       className="h-screen w-screen grid place-items-center duration-300"
